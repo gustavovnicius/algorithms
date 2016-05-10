@@ -16,7 +16,7 @@ public class InsertionSortSpec {
 		List<Integer> shuffled = new ArrayList<Integer>(Arrays.asList(new Integer[] { 4, 2, 3, 1 }));
 		List<Integer> sorted = new ArrayList<Integer>(Arrays.asList(new Integer[] { 1, 2, 3, 4 }));
 
-		it(insertion.sort(shuffled, InsertionSort.ASC)).shouldEqual(sorted);
+		it(insertion.sort(shuffled, Order.ASC)).shouldEqual(sorted);
 	}
 
 	@Test
@@ -26,6 +26,6 @@ public class InsertionSortSpec {
 		List<Integer> shuffled = new ArrayList<Integer>(Arrays.asList(new Integer[] { 3, 2, 4, 1 }));
 		List<Integer> sorted = new ArrayList<Integer>(Arrays.asList(new Integer[] { 4, 3, 2, 1 }));
 
-		it(insertion.sort(shuffled, InsertionSort.DESC)).shouldEqual(sorted);
+		it(insertion.sort(shuffled, Order.DESC)).shouldEqual(sorted);
 	}
 }
