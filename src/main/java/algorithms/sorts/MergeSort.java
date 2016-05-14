@@ -15,17 +15,18 @@ public class MergeSort {
 			return shuffled;
 
 		Integer mid = shuffled.size() / 2;
-		List<T> left = sort(new ArrayList<T>(shuffled.subList(0, mid)));
-		List<T> right = sort(new ArrayList<T>(shuffled.subList(mid, shuffled.size())));
+		List<T> left = sort(new ArrayList<T>(shuffled.subList(0, mid)), order);
+		List<T> right = sort(new ArrayList<T>(shuffled.subList(mid, shuffled.size())), order);
 
-		return merge(left, right);
+		return merge(left, right, order);
 	}
 
-	public <T extends Comparable<? super T>> List<T> merge(List<T> left, List<T> right) {
+	public <T extends Comparable<? super T>> List<T> merge(List<T> left, List<T> right,
+			BiFunction<Comparable<? super T>, T, Boolean> order) {
 		List<T> dest = new ArrayList<T>();
 
 		while (!left.isEmpty() && !right.isEmpty()) {
-			if (left.get(0).compareTo(right.get(0)) < 0)
+			if (order.apply(right.get(0), left.get(0)))
 				dest.add(left.remove(0));
 			else
 				dest.add(right.remove(0));
