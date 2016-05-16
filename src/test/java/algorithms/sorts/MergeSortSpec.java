@@ -22,16 +22,14 @@ public class MergeSortSpec {
 	@Test
 	public void ascendingOrderByDefaultTest() {
 		MergeSort merge = new MergeSort();
-		List<Integer> shuffled = new ArrayList<Integer>(Arrays.asList(new Integer[] { 4, 3, 2, 1 }));
 
-		it(merge.sort(shuffled)).shouldBeEqual(sorted);
+		it(merge.sort(reversed)).shouldBeEqual(sorted);
 	}
 
 	@Test
 	public void sortWithExplicitOrderTest() {
 		MergeSort insertion = new MergeSort();
-		List<Integer> shuffled = new ArrayList<Integer>(Arrays.asList(new Integer[] { 3, 4, 1, 2 }));
 
-		it(insertion.sort(shuffled, new Order<Integer>().DESC)).shouldBeEqual(reversed);
+		it(insertion.sort(sorted, new Order<Integer>().DESC)).shouldBeEqual(reversed);
 	}
 }

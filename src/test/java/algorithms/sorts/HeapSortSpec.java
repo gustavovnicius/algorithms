@@ -22,9 +22,8 @@ public class HeapSortSpec {
 	@Test
 	public void ascendingOrderByDefaultTest() {
 		HeapSort heap = new HeapSort();
-		List<Integer> shuffled = new ArrayList<Integer>(Arrays.asList(new Integer[] { 4, 3, 2, 1 }));
 
-		it(heap.sort(shuffled)).shouldBeEqual(sorted);
+		it(heap.sort(reversed)).shouldBeEqual(sorted);
 	}
 	
 	@Test
