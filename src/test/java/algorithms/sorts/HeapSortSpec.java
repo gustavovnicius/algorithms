@@ -25,14 +25,22 @@ public class HeapSortSpec {
 
 		it(heap.sort(reversed)).shouldBeEqual(sorted);
 	}
-	
+
+	@Test
+	public void sortWithExplicitOrderTest() {
+		HeapSort heap = new HeapSort();
+
+		it(heap.sort(sorted, new Order<Integer>().DESC)).shouldBeEqual(reversed);
+	}
+
 	@Test
 	public void maxHeapifyTest() {
-		List<Integer> toHeap = new ArrayList<Integer>(Arrays.asList(new Integer[] {16, 4, 10, 14, 7, 9, 3, 2, 8, 1 }));
-		List<Integer> heapified = new ArrayList<Integer>(Arrays.asList(new Integer[] {16, 14, 10, 8, 7, 9, 3, 2, 4, 1 }));
-		
-		HeapSort.MaxHeap<Integer> heap = new HeapSort.MaxHeap<Integer>(toHeap);
-		
+		List<Integer> toHeap = new ArrayList<Integer>(Arrays.asList(new Integer[] { 16, 4, 10, 14, 7, 9, 3, 2, 8, 1 }));
+		List<Integer> heapified = new ArrayList<Integer>(
+				Arrays.asList(new Integer[] { 16, 14, 10, 8, 7, 9, 3, 2, 4, 1 }));
+
+		HeapSort.MaxHeap<Integer> heap = new HeapSort.MaxHeap<Integer>(toHeap, new Order<Integer>().ASC);
+
 		it(heap.asCollection()).shouldBeEqual(heapified);
 	}
 }
