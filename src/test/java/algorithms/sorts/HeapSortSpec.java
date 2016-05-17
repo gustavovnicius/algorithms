@@ -39,7 +39,7 @@ public class HeapSortSpec {
 		List<Integer> heapified = new ArrayList<Integer>(
 				Arrays.asList(new Integer[] { 16, 14, 10, 8, 7, 9, 3, 2, 4, 1 }));
 
-		HeapSort.MaxHeap<Integer> heap = new HeapSort.MaxHeap<Integer>(toHeap, new Order<Integer>().ASC);
+		HeapSort.Heap<Integer> heap = new HeapSort.Heap<Integer>(toHeap, new Order<Integer>().ASC);
 
 		it(heap.asCollection()).shouldBeEqual(heapified);
 	}

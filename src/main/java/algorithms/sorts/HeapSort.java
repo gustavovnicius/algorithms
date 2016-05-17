@@ -15,34 +15,32 @@ public class HeapSort {
 		List<T> toShuffle = new ArrayList<T>(shuffled);
 		List<T> sorted = new ArrayList<T>();
 
-		toShuffle = new MaxHeap<T>(toShuffle, order).asCollection();
+		toShuffle = new Heap<T>(toShuffle, order).asCollection();
 
 		for (int i = toShuffle.size(); i > 0; i--) {
 			sorted.add(0, toShuffle.remove(0));
-			new MaxHeap<T>().maxHeapify(toShuffle, 0, order);
+			new Heap<T>().heapify(toShuffle, 0, order);
 		}
 
 		return sorted;
 	}
 
-	public static class MaxHeap<T extends Comparable<? super T>> {
+	public static class Heap<T extends Comparable<? super T>> {
 		private List<T> heap;
 
-		public MaxHeap() {
+		public Heap() {}
 
-		}
-
-		public MaxHeap(List<T> list, BiFunction<Comparable<? super T>, T, Boolean> order) {
+		public Heap(List<T> list, BiFunction<Comparable<? super T>, T, Boolean> order) {
 			List<T> toHeap = new ArrayList<T>(list);
 
 			// Build max heap
 			for (int i = toHeap.size() / 2; i >= 0; i--)
-				this.maxHeapify(toHeap, i, order);
+				this.heapify(toHeap, i, order);
 
 			this.heap = new ArrayList<T>(toHeap);
 		}
 
-		public void maxHeapify(List<T> list, Integer index, BiFunction<Comparable<? super T>, T, Boolean> order) {
+		public void heapify(List<T> list, Integer index, BiFunction<Comparable<? super T>, T, Boolean> order) {
 			Integer left = index * 2 + 1;
 			Integer right = left + 1;
 			Integer greater = index;
@@ -57,7 +55,7 @@ public class HeapSort {
 
 			if (greater != index) {
 				Collections.swap(list, index, greater);
-				maxHeapify(list, greater, order);
+				heapify(list, greater, order);
 			}
 		}
 
