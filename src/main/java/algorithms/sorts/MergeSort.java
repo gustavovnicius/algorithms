@@ -4,11 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.BiFunction;
 
-public class MergeSort {
+public class MergeSort implements Sort {
+	@Override
 	public <T extends Comparable<? super T>> List<T> sort(List<T> shuffled) {
 		return sort(shuffled, new Order<T>().ASC);
 	}
 
+	@Override
 	public <T extends Comparable<? super T>> List<T> sort(List<T> shuffled,
 			BiFunction<Comparable<? super T>, T, Boolean> order) {
 		if (shuffled.size() <= 1)

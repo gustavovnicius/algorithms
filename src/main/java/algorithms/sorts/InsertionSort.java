@@ -3,11 +3,14 @@ package algorithms.sorts;
 import java.util.List;
 import java.util.function.BiFunction;
 
-public class InsertionSort {
+public class InsertionSort implements Sort {
+
+	@Override
 	public <T extends Comparable<? super T>> List<T> sort(List<T> shuffled) {
 		return sort(shuffled, new Order<T>().ASC);
 	}
 
+	@Override
 	public <T extends Comparable<? super T>> List<T> sort(List<T> shuffled,
 			BiFunction<Comparable<? super T>, T, Boolean> order) {
 		int length = shuffled.size();

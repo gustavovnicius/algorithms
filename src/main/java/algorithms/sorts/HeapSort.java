@@ -5,11 +5,13 @@ import java.util.Collections;
 import java.util.List;
 import java.util.function.BiFunction;
 
-public class HeapSort {
+public class HeapSort implements Sort {
+	@Override
 	public <T extends Comparable<? super T>> List<T> sort(List<T> shuffled) {
 		return this.sort(shuffled, new Order<T>().ASC);
 	}
 
+	@Override
 	public <T extends Comparable<? super T>> List<T> sort(List<T> shuffled,
 			BiFunction<Comparable<? super T>, T, Boolean> order) {
 		List<T> toShuffle = new ArrayList<T>(shuffled);
@@ -28,7 +30,8 @@ public class HeapSort {
 	public static class Heap<T extends Comparable<? super T>> {
 		private List<T> heap;
 
-		public Heap() {}
+		public Heap() {
+		}
 
 		public Heap(List<T> list, BiFunction<Comparable<? super T>, T, Boolean> order) {
 			List<T> toHeap = new ArrayList<T>(list);

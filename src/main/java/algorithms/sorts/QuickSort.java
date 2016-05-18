@@ -4,11 +4,14 @@ import java.util.Collections;
 import java.util.List;
 import java.util.function.BiFunction;
 
-public class QuickSort {
+public class QuickSort implements Sort {
+
+	@Override
 	public <T extends Comparable<? super T>> List<T> sort(List<T> shuffled) {
 		return sort(shuffled, new Order<T>().ASC);
 	}
 
+	@Override
 	public <T extends Comparable<? super T>> List<T> sort(List<T> shuffled,
 			BiFunction<Comparable<? super T>, T, Boolean> order) {
 		return quickSort(shuffled, 0, shuffled.size() - 1, order);
