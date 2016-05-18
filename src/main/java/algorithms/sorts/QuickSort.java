@@ -18,7 +18,6 @@ public class QuickSort {
 			BiFunction<Comparable<? super T>, T, Boolean> order) {
 		if (start < end) {
 			Integer pivot = this.partition(shuffled, start, end, order);
-			System.out.println(pivot);
 			this.quickSort(shuffled, start, pivot - 1, order);
 			this.quickSort(shuffled, pivot + 1, end, order);
 		}
