@@ -18,6 +18,7 @@ public class SortSpec {
 		ascendingSortOrderByDefault(MergeSort.class);
 		ascendingSortOrderByDefault(HeapSort.class);
 		ascendingSortOrderByDefault(QuickSort.class);
+		ascendingSortOrderByDefault(CountingSort.class);
 
 		explicitSortOrder(InsertionSort.class);
 		explicitSortOrder(MergeSort.class);
