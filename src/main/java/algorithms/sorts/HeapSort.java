@@ -37,8 +37,9 @@ public class HeapSort implements Sort {
 			List<T> toHeap = new ArrayList<T>(list);
 
 			// Build max heap
-			for (int i = toHeap.size() / 2; i >= 0; i--)
+			for (int i = toHeap.size() / 2; i >= 0; i--) {
 				this.heapify(toHeap, i, order);
+			}
 
 			this.heap = new ArrayList<T>(toHeap);
 		}

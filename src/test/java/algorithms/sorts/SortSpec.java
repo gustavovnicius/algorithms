@@ -30,8 +30,8 @@ public class SortSpec {
 		setup();
 		try {
 			Sort s = sort.newInstance();
-			List<Integer> shuffled = new ArrayList<Integer>(Arrays.asList(new Integer[]{ 1, 4, 5, 11, 0, 8, 9, 2, 7, 6, 10 }));
-			List<Integer> newSorted = new ArrayList<Integer>(Arrays.asList(new Integer[]{ 0, 1, 2, 4, 5, 6, 7, 8, 9, 10, 11 }));
+			List<Integer> shuffled = new ArrayList<Integer>(Arrays.asList(new Integer[]{ 1, 4, 5, 11, 0, 8, 9, 2, 7, 6, 10, 3 }));
+			List<Integer> newSorted = new ArrayList<Integer>(Arrays.asList(new Integer[]{ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 }));
 			it(s.sort(shuffled)).shouldBeEqual(newSorted);
 			it(s.sort(reversed)).shouldBeEqual(sorted);
 		} catch (InstantiationException | IllegalAccessException e) {
